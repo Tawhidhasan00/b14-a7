@@ -26,3 +26,6 @@ export function getChangeText(product: IProducts) {
   return `${arrow} ${toBanglaNumber(Math.abs(product.change.pct), 1)}%`;
 }
 
+export function getUnitLabel(unit: string) {
+  return `প্রতি ${getUnitName(unit)}`;
+}
