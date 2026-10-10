@@ -11,13 +11,17 @@ export interface IProducts {
     nameBn: string
     image: string
     category: string
+    categoryNameBn: string
     change: {
         dir: string
         pct: number
     }
-    market: {
-        market: string
-    }
+    markets: {
+    market: string;
+    division: string;
+    min: number;
+    max: number;
+    }[];
     today: number
     yesterday: number
     unit: string
