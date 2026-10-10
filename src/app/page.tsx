@@ -1,7 +1,6 @@
 
 import { getCategories, getProducts } from '@/lib/api';
 import HeroPage from '../components/Hero';
-import Marquee from '../components/Marquee';
 import ProductSection from '../components/ProductSection';
 
 const HomePage = async() => {
@@ -21,13 +20,12 @@ const HomePage = async() => {
     .slice(0, 6);
 
   return (
-    <div className='bg-base-300'>
+    <div className='bg-base-300 pt-5'>
 
-      <Marquee/>
 
       <div>
         <HeroPage/>
-        <div className='max-w-7xl mx-auto'>
+        <div className='max-w-7xl mx-auto pb-10'>
           <ProductSection title="আজ দাম বেড়েছে" trend="up" products={rise} />
           <ProductSection title={`আজ দাম কমেছে`} trend="down" products={fall} />
           <ProductSection
@@ -37,6 +35,7 @@ const HomePage = async() => {
             products={products}
           />
         </div>
+        
       </div>
     </div>
   );

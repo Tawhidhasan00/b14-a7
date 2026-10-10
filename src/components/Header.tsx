@@ -16,7 +16,6 @@ const Header = async() => {
             {/*  */}
             <div className='max-w-7xl mx-auto flex h-17 items-center gap-3'>
                 
-
                 <Link href={'/'} className='flex items-center gap-2'>
                     <span className="flex size-9 items-center justify-center rounded-lg bg-[#05893e]">
                         <Image src={'/logo-icon.png'} alt='logo' 
@@ -29,7 +28,6 @@ const Header = async() => {
                         <p className='text-xs text-gray-600'>{date}</p>
                     </div>
                 </Link>
-
 
                 <div className="ml-auto hidden items-center gap-2 sm:flex">
                 <Link

@@ -16,7 +16,7 @@ const ProductSection = ({ id, title, trend, subtitle, products }: ProductSection
     trend === "up" ? "text-[#d03739]" : "text-[#1a9951]";
 
   return (
-    <section id={id} className="scroll-mt-4 mb-10">
+    <section id={id} className="scroll-mt-4">
         <div className="mb-3">
           <h2 className="flex items-center gap-3 text-xl font-bold">
             {trend && (

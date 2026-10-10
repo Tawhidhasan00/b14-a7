@@ -10,6 +10,7 @@ export interface IProducts {
     slug: string
     nameBn: string
     image: string
+    category: string
     change: {
         dir: string
         pct: number
