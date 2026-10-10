@@ -1,23 +1,33 @@
 import { INav, IProducts } from "@/Types/type";
 
-export const getCategories = async(): Promise<INav[]> => {
-    const res = await fetch('https://api.api-store.workers.dev/api/bazardor/categories',
-        {next: {revalidate: 300}}
-    );
-    if (!res.ok) {
-        throw new Error(`Categories API failed: ${res.status} ${res.statusText}`);
+const API_URLS = [
+  "https://api.api-store.workers.dev/api/bazardor",
+  "https://api.abcz.workers.dev/api/bazardor",
+];
+
+
+async function getApiData <T> (path: string): Promise<T> {
+  for (const baseUrl of API_URLS) {
+    try {
+      const response = await fetch(`${baseUrl}${path}`, {
+        next: { revalidate: 3600 },
+      });
+
+      if (response.ok) {
+        return response.json() as Promise<T>;
+      }
+    } catch {
+      
     }
-    const data = await res.json();
-    return data;
+  }
+  throw new Error("বাজার দরের তথ্য লোড করা যায়নি।");
 }
 
-export const getProducts = async(): Promise<IProducts[]> => {
-    const res = await fetch('https://api.api-store.workers.dev/api/bazardor/products',
-        {next: {revalidate: 300}}
-    );
-    if (!res.ok) {
-        throw new Error(`Products API failed: ${res.status} ${res.statusText}`);
-    }
-    const data = await res.json();
-    return data;
+
+export function getProducts() {
+  return getApiData<IProducts[]>("/products");
+}
+
+export function getCategories() {
+  return getApiData<INav[]>("/categories");
 }

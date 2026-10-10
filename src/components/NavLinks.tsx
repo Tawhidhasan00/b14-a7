@@ -10,7 +10,6 @@ type HeaderProps = {
 const NavLinks = async({ activeCategory }: HeaderProps) => {
 
     const navs: INav[] = await getCategories();
-    console.log(navs)
 
     return (
         <div className='max-w-7xl mx-auto p-1 h-7.5 flex gap-5 justify-start my-2'>

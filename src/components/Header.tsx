@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import NavLinks from './NavLinks';
 import Link from 'next/link';
+import UserInfo from './UserInfo';
 
 const Header = async() => {
 
@@ -13,9 +14,9 @@ const Header = async() => {
 
     return (
         <header className='border-b border-[#e2ebe3] p-2'>
-            {/*  */}
+            
             <div className='max-w-7xl mx-auto flex h-17 items-center gap-3'>
-                
+            {/* logo */}    
                 <Link href={'/'} className='flex items-center gap-2'>
                     <span className="flex size-9 items-center justify-center rounded-lg bg-[#05893e]">
                         <Image src={'/logo-icon.png'} alt='logo' 
@@ -29,18 +30,8 @@ const Header = async() => {
                     </div>
                 </Link>
 
-                <div className="ml-auto hidden items-center gap-2 sm:flex">
-                <Link
-                    href="/signin"
-                    className="btn btn-ghost btn-sm h-10 rounded-lg px-4 text-sm font-semibold">
-                    সাইন ইন
-                </Link>
-                <Link
-                    href="/signup"
-                    className="btn btn-sm h-10 rounded-lg border-[#05893e] bg-[#05893e] px-4 text-sm text-white shadow-none hover:border-[#047f39] hover:bg-[#086831]">
-                    সাইন আপ
-                </Link>
-                </div>
+            {/* signin, signup */}
+                <UserInfo/>
             </div>
 
             {/* Navbar */}

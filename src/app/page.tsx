@@ -25,7 +25,7 @@ const HomePage = async() => {
 
       <div>
         <HeroPage/>
-        <div className='max-w-7xl mx-auto pb-10'>
+        <div className='max-w-7xl mx-auto mt-10 mb-10 space-y-15'>
           <ProductSection title="আজ দাম বেড়েছে" trend="up" products={rise} />
           <ProductSection title={`আজ দাম কমেছে`} trend="down" products={fall} />
           <ProductSection

@@ -12,7 +12,6 @@ import "react-marquee-text/dist/styles.css"
 const Marquee = async() => {
 
     const products: IProducts[] = await getProducts();
-    console.log(products)
     
     return (
         <div className="text-black bg-white">
