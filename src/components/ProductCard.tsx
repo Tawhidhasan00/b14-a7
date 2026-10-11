@@ -16,7 +16,7 @@ const ProductCard = ({product}: {product: IProducts}) => {
         <div className="max-w-7xl mx-auto ">
             <Link
             href={`/product/${product.slug}`}
-            className=" block min-h-34.5 p-4 transition duration-200 hover:-translate-y-0.5 hover:border-[#abd6b5] hover:shadow-md focus:outline-none focus:ring-2 focus:ring-[#05893e]/40"
+            className=" block min-h-34.5 p-4 transition duration-200 hover:-translate-y-0.5 hover:border-[#abd6b5] hover:shadow-md"
             >
             <div className="flex items-start gap-3">
                 <span className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-[#eef5ef] text-2xl" aria-hidden="true">

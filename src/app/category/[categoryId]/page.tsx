@@ -17,7 +17,10 @@ const CategoryPage = async({params}: CategoryPageProps ) => {
     if (!category) notFound();
 
     const categoryProducts = products.filter((product) => product.category === categoryId);
- 
+    if (categoryProducts.length === 0) {
+    notFound();
+    }
+    
     return (
         <div className=" ">
             <div className="max-w-7xl mx-auto py-5">

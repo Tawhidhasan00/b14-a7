@@ -11,7 +11,7 @@ type ProductPageProps = {
 const ProductPage = async({params}: ProductPageProps) => {
 
     const { productId } = await params;
-    const [products, categories] = await Promise.all([
+    const [products] = await Promise.all([
         getProducts(),
         getCategories(),
     ]);

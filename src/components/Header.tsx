@@ -8,7 +8,8 @@ const Header = async() => {
 
     const date = new Date().toLocaleDateString(
         'bn-BD', {
-            dateStyle: 'full'
+            dateStyle: 'full',
+            timeZone: "Asia/Dhaka",
         }
     )
 

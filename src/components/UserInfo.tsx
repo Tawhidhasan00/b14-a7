@@ -6,11 +6,18 @@ import Dropdown from './auth/Dropdown';
 
 const UserInfo = () => {
 
-    const  { data: session } = useSession();
+    const  { data: session, isPending } = useSession();
     const user = session?.user;
+    if (isPending) {
+        return (
+            <div className="ml-auto">
+            <span className="loading loading-spinner loading-sm" />
+            </div>
+        );
+    }
 
     return (
-        <div className="ml-auto hidden items-center gap-2 sm:flex">
+        <div className="ml-auto flex items-center gap-1 sm:gap-2">
             {
                 user ?
                 <Dropdown name={session.user.name} email={session.user.email}/>

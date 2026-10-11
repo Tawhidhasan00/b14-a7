@@ -4,9 +4,14 @@ import GoogleAuth from '@/components/auth/GoogleAuth';
 import SignIn from '@/components/auth/SignIn';
 import Link from 'next/link';
 
+type SignInPageProps = {
+  searchParams: Promise<{
+    reason?: string;
+  }>;
+};
 
-const SignInPage = () => {
-
+const SignInPage = async ({ searchParams }: SignInPageProps) => {
+    const { reason } = await searchParams;
 
     return (
       <div>
@@ -19,7 +24,7 @@ const SignInPage = () => {
           </div>
 
           <div className="surface-card p-6 bg-white rounded-2xl">
-              <SignIn/>
+              <SignIn showProtectedToast={reason === "protected"}/>
 
               <div className="divider my-5 text-xs text-[#68736a]">অথবা</div>
 

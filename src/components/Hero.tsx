@@ -5,12 +5,14 @@ const HeroPage = () => {
 
     const date = new Date().toLocaleDateString(
         'bn-BD', {
-            dateStyle: 'full'
+            dateStyle: 'full',
+            timeZone: "Asia/Dhaka",
         }
     )
+
     return (
         <section className='max-w-7xl mx-auto flex justify-between bg-white rounded-2xl my-8
-                            px-4 py-8 sm:px-8 md:grid-cols-[1fr_340px] md:items-center md:py-0 '>
+                            px-4 py-8 sm:px-8 md:flex-row md:items-center md:py-0 '>
             <div className="max-w-2xl space-y-2 py-5">
                 <span className='px-2 rounded-xl text-green-500 bg-green-200 text-sm '>{date}</span>
                 <h1 className="text-3xl font-bold leading-tight sm:text-4xl mt-3">
@@ -28,7 +30,7 @@ const HeroPage = () => {
                 </Link>
             </div>
             <div>
-                <Image src='/bazar-hero.png' alt='Banner' 
+                <Image src='/bazar-hero.png' alt="বাজার দরের ব্যানার" 
                         width={300}
                         height={400}></Image>
             </div>

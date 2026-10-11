@@ -7,7 +7,9 @@ const db = client.db('bazar-dor');
 
 export const auth = betterAuth({
   emailAndPassword: { 
-    enabled: true, 
+    enabled: true,
+    autoSignIn: false,
+    minPasswordLength: 8,
   }, 
   socialProviders: {
     google: {
