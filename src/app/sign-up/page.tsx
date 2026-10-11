@@ -1,24 +1,10 @@
-'use client'
-import Link from 'next/link';
-import {  signUp } from '@/lib/auth-client';
-import React from 'react';
-import { redirect } from 'next/navigation';
 
+import GithubAuth from '@/components/auth/GithubAuth';
+import GoogleAuth from '@/components/auth/GoogleAuth';
+import SignUp from '@/components/auth/SignUp';
+import Link from 'next/link';
 
 const SignUpPage = () => {
-
-  const onSubmit = async(e: React.SubmitEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const user = Object.fromEntries(formData.entries()) as {name: string, email: string, password: string, confirmPassword: string}
-
-    const {data, error} = await signUp.email({
-        ...user,
-    })
-    if(data) {
-        redirect('/')
-    }
-  };
 
 
     return (
@@ -32,80 +18,22 @@ const SignUpPage = () => {
                 </div>
 
                 <div className="surface-card p-6 bg-white rounded-2xl">
-                <form className="space-y-3.5" onSubmit={onSubmit}>
-                    <label className="form-control block">
-                    <span className="mb-1.5 block text-sm font-medium">নাম</span>
-                    <input
-                        name='name'
-                        type="text"
-                        placeholder="যেমন: রহিম উদ্দিন"
-                        className="input w-full rounded-lg border-[#cad9cc] bg-white focus:border-[#05893e] focus:outline-none"
-                    />
-                    </label>
+                    <SignUp/>
 
-                    <label className="form-control block">
-                    <span className="mb-1.5 block text-sm font-medium">ইমেইল</span>
-                    <input
-                        name='email'
-                        type="email"
-                        placeholder="you@example.com"
-                        className="input w-full rounded-lg border-[#cad9cc] bg-white focus:border-[#05893e] focus:outline-none"
-                    />
-                    </label>
+                    <div className="divider my-5 text-xs text-[#68736a]">অথবা</div>
 
-                    <label className="form-control block">
-                    <span className="mb-1.5 block text-sm font-medium">পাসওয়ার্ড</span>
-                    <input
-                        name='password'
-                        type="password"
-                        placeholder="কমপক্ষে ৮ অক্ষর"
-                        className="input w-full rounded-lg border-[#cad9cc] bg-white focus:border-[#05893e] focus:outline-none"
-                    />
-                    </label>
+                    <div className="grid gap-2 sm:grid-cols-2">
+                        <GoogleAuth/>
+                        
+                        <GithubAuth/>
+                    </div>
 
-                    <label className="form-control block">
-                    <span className="mb-1.5 block text-sm font-medium">
-                        পাসওয়ার্ড নিশ্চিত করুন
-                    </span>
-                    <input
-                        name="confirmPassword"
-                        type="password"
-                        placeholder="আবার লিখুন"
-                        className="input w-full rounded-lg border-[#cad9cc] bg-white focus:border-[#05893e] focus:outline-none"
-                    />
-                    </label>
-
-                    <button
-                    type="submit"
-                    className="btn mt-1 w-full rounded-lg border-[#05893e] bg-[#05893e] text-white shadow-none hover:border-[#047f39] hover:bg-[#047f39]"
-                    >
-                    সাইন আপ
-                    </button>
-                </form>
-
-                <div className="divider my-5 text-xs text-[#68736a]">অথবা</div>
-
-                <div className="grid gap-2 sm:grid-cols-2">
-                    <button
-                    type="button"
-                    className="btn btn-outline rounded-lg border-[#cad9cc] bg-white text-sm"
-                    >
-                    Google দিয়ে চালিয়ে যান
-                    </button>
-                    <button
-                    type="button"
-                    className="btn btn-outline rounded-lg border-[#cad9cc] bg-white text-sm"
-                    >
-                    GitHub দিয়ে চালিয়ে যান
-                    </button>
-                </div>
-
-                <p className="mt-5 text-sm text-[#68736a]">
-                    অ্যাকাউন্ট আছে?{" "}
-                    <Link href="/sign-in" className="font-semibold text-[#05893e]">
-                    সাইন ইন করুন
-                    </Link>
-                </p>
+                    <p className="mt-5 text-sm text-[#68736a]">
+                        অ্যাকাউন্ট আছে?{" "}
+                        <Link href="/sign-in" className="font-semibold text-[#05893e]">
+                        সাইন ইন করুন
+                        </Link>
+                    </p>
                 </div>
 
                 <Link href="/" className="mt-5 block text-center text-gray-600 text-sm hover:text-[#05893e]">
